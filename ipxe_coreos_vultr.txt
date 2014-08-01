@@ -1,6 +1,6 @@
 #!ipxe
 
 set base-url http://alpha.release.core-os.net/amd64-usr/current
-kernel ${base-url}/coreos_production_pxe.vmlinuz sshkey="AAAAB3NzaC1yc2EAAAADAQABAAABAQDNa09ns7M/415M++XiQg/ZOjgnNqW6kwP/H4V/AwFUXEM1t4OLhIN8Y+S58D5yJoO+zOiReselyAg5stGmMcwO9fmZRGKcWixPCeaXShQKUVy7WIvEBVb4fq2hxv/vKk/O0CwZP4+Jbikqr7BjJC24CAFCwuGfjWxMiZHgTWEWCMIMU3rs5apI9Bf/uT+TvDhcfuNiBcvMB/2d8Q5OASQoG09OAPv0r8wDj9FbBMs77Dsj0jCd3n9vDlBBGGBpmKVSkE6RJV3IgRsVaPxe2XaY+IiXA4rWKDnVWrpIhzPXI4cRJd7IdVMs2jM2NEQXTcFHQm18zoXm86xoQf+b8nGr"
+kernel ${base-url}/coreos_production_pxe.vmlinuz sshkey="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDNa09ns7M/415M++XiQg/ZOjgnNqW6kwP/H4V/AwFUXEM1t4OLhIN8Y+S58D5yJoO+zOiReselyAg5stGmMcwO9fmZRGKcWixPCeaXShQKUVy7WIvEBVb4fq2hxv/vKk/O0CwZP4+Jbikqr7BjJC24CAFCwuGfjWxMiZHgTWEWCMIMU3rs5apI9Bf/uT+TvDhcfuNiBcvMB/2d8Q5OASQoG09OAPv0r8wDj9FbBMs77Dsj0jCd3n9vDlBBGGBpmKVSkE6RJV3IgRsVaPxe2XaY+IiXA4rWKDnVWrpIhzPXI4cRJd7IdVMs2jM2NEQXTcFHQm18zoXm86xoQf+b8nGr"
 initrd ${base-url}/coreos_production_pxe_image.cpio.gz
 boot
