@@ -1,0 +1,44 @@
+<html>
+<head>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script>
+	var TIMER_MSEC = 1 * 1000;
+	var UPDATE_INTERVAL_MSEC = 30 * 1000;
+	var proc = function(nexttick, callback){
+		var now = (new Date()).getTime();
+		uiupdate((nexttick - now) / 1000 | 0);
+		if(now < nexttick){
+			return callback(nexttick);
+		}
+		uiupdate("updating");
+		$.get( "https://justcoin.com/api/v1/markets", {}, function(d){
+			d.
+			map(function(v){return {id:v.id,bid:v.bid, ask:v.ask}}).
+			forEach(function(v){
+				var text = v.id +": " + v.bid + " - " + v.ask;
+				$("#"+v.id).html(text);
+			});
+			return callback(now + UPDATE_INTERVAL_MSEC);
+		} );
+	}
+	var uiupdate = function(countdown){
+		$("#COUNTDOWN").html(countdown);
+	}
+	var update = function(nexttick, msec){
+		proc(nexttick, function(nexttick){
+			setTimeout(function(){
+				update(nexttick, msec);
+			}, msec);
+		});
+	}
+	update((new Date()).getTime(), TIMER_MSEC);
+</script>
+</head>
+<body>
+	<div id="COUNTDOWN">0</div>
+	<div id="BTCUSD">wait</div>
+	<div id="BTCSTR">wait</div>
+	<div id="BTCXRP">wait</div>
+</body>
+</html>
