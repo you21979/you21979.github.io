@@ -4,7 +4,8 @@ $(function(){
   var req = rippleRate(websocket, pair, function(res){
     document.getElementById('rtjbid').innerHTML = res.bid;
     document.getElementById('rtjask').innerHTML = res.ask;
-    websocket.close();
+//    websocket.close();
+    setTimeout(function(){ req.request(); }, 5 * 1000)
   });
   websocket.onopen = function(evt) {
     req.request();
