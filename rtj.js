@@ -1,7 +1,7 @@
 $(function(){
   var pair = 'XRP/JPY.rMAz5ZnK73nyNUL4foAvaxdreczCkG3vA6';
   var websocket = new WebSocket('wss://s1.ripple.com/');
-  var req = RippleRate(websocket, pair, function(res){
+  var req = rippleRate(websocket, pair, function(res){
     document.getElementById('rtjbid').innerHTML = res.bid;
     document.getElementById('rtjask').innerHTML = res.ask;
     websocket.close();
